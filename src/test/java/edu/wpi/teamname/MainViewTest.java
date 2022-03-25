@@ -2,7 +2,7 @@ package edu.wpi.teamname;
 
 import static org.testfx.api.FxAssert.verifyThat;
 
-import edu.wpi.teamname.entity.Mortgage;
+import edu.wpi.teamname.entities.Mortgage;
 import edu.wpi.teamname.views.LabelController;
 import edu.wpi.teamname.views.MainController;
 import javafx.fxml.FXMLLoader;
