@@ -1,7 +1,9 @@
 package edu.wpi.teamname.views;
 
+import edu.wpi.teamname.entity.Mortgage;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -9,11 +11,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class LabelController implements Initializable {
+  private Mortgage mortgage;
 
   @FXML private Label totalLabel;
 
+  public LabelController(Mortgage mortgage) {
+    this.mortgage = mortgage;
+  }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    // totalLabel.textProperty().bind(Bindings.format("$%.2f", Fill In This Variable ));
+    totalLabel.textProperty().bind(Bindings.format("$%.2f", mortgage.getValueProperty()));
   }
 }
