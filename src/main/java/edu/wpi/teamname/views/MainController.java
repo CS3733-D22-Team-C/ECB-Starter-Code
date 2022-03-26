@@ -10,18 +10,23 @@ public class MainController {
   @FXML private TextField rateField;
   @FXML private TextField yearField;
   @FXML private Button computeButton;
-  private Mortgage mortgage = new Mortgage();
+  private Mortgage mortgage;
 
   public MainController() {
     /* Inject entity objects */
   }
 
+  public MainController(Mortgage mortgage) {
+    this.mortgage = mortgage;
+  }
+
   /** Set the properties of the mortgage model and calculate the montly interest */
   @FXML
   private void calculateTotalClicked() {
-    mortgage.setAmount(Integer.parseInt(amountField.toString()));
-    mortgage.setRate(Double.parseDouble(rateField.toString()));
-    mortgage.setYears(Integer.parseInt(yearField.toString()));
+    mortgage.setAmount(Integer.parseInt(amountField.getText()));
+    mortgage.setRate(Double.parseDouble(rateField.getText()));
+    mortgage.setYears(Integer.parseInt(yearField.getText()));
+    mortgage.setValue(mortgage.getAmount() * mortgage.getYears() * mortgage.getRate());
   }
 
   /**
